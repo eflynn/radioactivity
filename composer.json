@@ -1,0 +1,7 @@
+{
+    "name": "eflynn/radioactivity",
+    "description": "Feed parser for Radioactivity.fm",
+    "require": {
+        "twig/twig": "1.*"
+    }
+}
