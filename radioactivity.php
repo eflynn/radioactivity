@@ -92,6 +92,19 @@ if ($dj['photo']):
 	<td width="20%">Label</td>
 	<td width="10%">Genre</td>
 </tr>
+<?php
+	$rss = fetch_feed( 'http://womm.radioactivity.fm/feeds/last25.xml' );
+
+	foreach ($rss->get_items(0) as $item): ?>
+	<tr>
+	 <td width="10%"><?= _radioactivity_get_tag($item, 'time') ?></td>
+	 <td width="20%"><?= _radioactivity_get_tag($item, 'track') ?></td>
+	 <td width="20%"><?= _radioactivity_get_tag($item, 'artist') ?></td>
+	 <td width="20%"><?= _radioactivity_get_tag($item, 'album' ) ?></td>
+	 <td width="20%"><?= _radioactivity_get_tag($item, 'label' ) ?></td>
+	 <td width="10%"><?= _radioactivity_get_tag($item, 'genre' ) ?></td>
+	</tr>
+<?php endforeach; ?>
 </table>
 <?php
 	$return = ob_get_contents();
